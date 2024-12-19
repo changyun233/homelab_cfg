@@ -1,0 +1,13 @@
+[Unit]
+Description=QMI WWAN Network Auto-Connect
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/start-wwan.sh
+RemainAfterExit=yes
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

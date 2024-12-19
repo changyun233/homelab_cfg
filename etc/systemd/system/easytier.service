@@ -1,0 +1,13 @@
+[Unit]
+Description=easytier connection
+After=wwan-connection.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/start-easytier.sh 
+RemainAfterExit=yes
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
